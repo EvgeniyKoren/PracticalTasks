@@ -17,7 +17,7 @@ body {
     text-align: center;
 }
 
-input[type="text"] {
+input {
     width: calc(100% - 20px);
     padding: 10px;
     margin: 10px 0;
