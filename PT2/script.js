@@ -1,7 +1,8 @@
 const calculatorData = {
     number1: '',
     operator: '',
-    number2: ''
+    number2: '',
+    result: ''
 };
 
 let activeField = null;
@@ -49,6 +50,7 @@ function calculate() {
             return;
     }
 
+    calculatorData.result = result;
     alert(`Result: ${result}`);
 }
 
@@ -77,3 +79,20 @@ function handleKeyClick(event) {
 document.querySelectorAll('.key').forEach(key => {
     key.addEventListener('click', handleKeyClick);
 });
+
+function cacheData() {
+    localStorage.setItem('calculatorData', JSON.stringify(calculatorData));
+    alert('Дані збережені в кеш.');
+}
+
+function showCache() {
+    const cachedData = localStorage.getItem('calculatorData');
+    if (cachedData) {
+        console.log('Cached data:', JSON.parse(cachedData));
+    } else {
+        console.log('Empty cached...');
+    }
+}
+
+document.getElementById('cacheButton').addEventListener('click', cacheData);
+document.getElementById('showCacheButton').addEventListener('click', showCache);
