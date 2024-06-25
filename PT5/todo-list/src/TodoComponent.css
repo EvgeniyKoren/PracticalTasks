@@ -1,0 +1,78 @@
+.todo-app {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.todo-app h1 {
+    color: #333;
+}
+
+.todo-app input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 70%;
+    margin-right: 10px;
+}
+
+.todo-app button {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.todo-app button:hover {
+    background-color: #218838;
+}
+
+.todo-app .filters {
+    margin: 20px 0;
+}
+
+.todo-app .filters button {
+    padding: 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.todo-app .filters button:hover {
+    background-color: #0056b3;
+}
+
+.todo-app ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.todo-app li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.todo-app li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.todo-app li button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.todo-app li button:hover {
+    background-color: #c82333;
+}
