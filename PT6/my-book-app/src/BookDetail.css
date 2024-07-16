@@ -1,0 +1,24 @@
+.book-detail {
+    text-align: center;
+}
+
+.book-detail img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.book-detail p {
+    color: #555;
+}
+
+.book-detail a {
+    text-decoration: none;
+    color: #007bff;
+    display: block;
+    margin-top: 20px;
+}
+
+.book-detail a:hover {
+    text-decoration: underline;
+}
