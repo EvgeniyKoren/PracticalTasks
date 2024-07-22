@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { BookProvider } from './BookContext';
-import BookList from './BookList';
-import BookDetail from './BookDetail';
+import BookList from './components/BookList/BookList';
+import BookDetail from './components/BookDetail/BookDetail';
 import './App.css';
 
 const App = () => {
