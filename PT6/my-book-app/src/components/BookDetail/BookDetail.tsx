@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+// import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { BookContext } from '../../BookContext';
+import { RootState } from '../../store';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -9,14 +9,16 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import CardActions from '@mui/material/CardActions';
+import {useSelector} from "react-redux";
 
 const BookDetail = () => {
-    const { id } = useParams();
-    const books = useContext(BookContext);
-    const book = books.find((b) => b.id === parseInt(id));
+    const { id } = useParams<{ id: string }>();
+    const book = useSelector((state: RootState) =>
+        state.books.books.find((book) => book.id === parseInt(id))
+    );
 
     if (!book) {
-        return <Typography variant="h5" align="center">Книга не знайдена</Typography>;
+        return <Typography variant="h5" align="center">Book not found</Typography>;
     }
 
     return (
@@ -28,13 +30,13 @@ const BookDetail = () => {
                             component="img"
                             image="https://via.placeholder.com/150"
                             alt="Stub"
-                            title={book.name}
+                            title={book.title}
                         />
                     </Grid>
                     <Grid item xs={12} md={8}>
                         <CardContent>
                             <Typography variant="h4" component="div">
-                                {book.name}
+                                {book.title}
                             </Typography>
                             <Typography color="textSecondary" gutterBottom>
                                 Author: {book.author}

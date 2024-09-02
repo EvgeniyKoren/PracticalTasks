@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchBooks } from '../../features/books/bookSlice';
 import { Link } from 'react-router-dom';
-import { BookContext } from '../../BookContext';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -10,7 +11,16 @@ import CardActions from '@mui/material/CardActions';
 import Button from '@mui/material/Button';
 
 const BookList = () => {
-    const books = useContext(BookContext);
+    const dispatch = useDispatch();
+    const books = useSelector((state: any) => state.books.books);
+    const status = useSelector((state: any) => state.books.status);
+    const error = useSelector((state: any) => state.books.error);
+
+    useEffect(() => {
+        if (status === 'idle') {
+            dispatch(fetchBooks());
+        }
+    }, [status, dispatch]);
 
     return (
         <Container>
@@ -23,7 +33,7 @@ const BookList = () => {
                         <Card>
                             <CardContent>
                                 <Typography variant="h6" component="div">
-                                    {book.name}
+                                    {book.title}
                                 </Typography>
                                 <Typography color="textSecondary">
                                     Author: {book.author}
